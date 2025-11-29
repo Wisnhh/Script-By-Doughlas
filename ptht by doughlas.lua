@@ -785,7 +785,7 @@ function SendInfoPTHT()
     }
   ]
 }
-]])
+]]
 end
 
 function FNum(num)
