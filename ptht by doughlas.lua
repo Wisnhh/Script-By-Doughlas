@@ -514,7 +514,7 @@ function TelePath(tx, ty, rangeTrigger)
         while try < TELEPATH_TRY_PER_STEP and InWorld() do
             Sleep(TELEPATH_STEP_SLEEP)
             local pl2 = GetLocal()
-            if pl2 and pl2.pos and math.floor(pl2.pos.x / 32) == nx and math.floor(pl2.pos.y / 32) == ny
+            if pl2 and pl2.pos and math.floor(pl2.pos.x / 32) == nx and math.floor(pl2.pos.y / 32) == ny then
                 reached = true
                 break
             end
