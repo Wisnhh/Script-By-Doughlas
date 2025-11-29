@@ -797,8 +797,8 @@ action|respawn
             if PendingCheatOn then
               local loc = GetLocal()
               if loc and pnbX and pnbY then
-                local lx = loc.pos.x // 32
-                local ly = loc.pos.y // 32
+                local lx = math.floor(loc.pos.x / 32)
+                local ly = math.floor(loc.pos.y / 32)
                 if lx == pnbX and ly == pnbY then
                   PendingCheatOn = false
                   CheatOn = true
@@ -1741,8 +1741,8 @@ function PNB_GUI()
 
   if ImGui.Button("Capture current PNB pos (pnbX,pnbY)") then
     if GetLocal and GetLocal().pos then
-      pnbX = GetLocal().pos.x // 32
-      pnbY = GetLocal().pos.y // 32
+      pnbX = math.floor(GetLocal().pos.x / 32)
+      pnbY = math.floor(GetLocal().pos.y / 32)
       TextOverlay("`2PNB Pos saved: X=" .. tostring(pnbX) .. " Y=" .. tostring(pnbY))
     else
       TextOverlay("`4Can't access local pos")
@@ -1751,8 +1751,8 @@ function PNB_GUI()
   ImGui.SameLine()
   if ImGui.Button("Capture current TEL pos (TelX,TelY)") then
     if GetLocal and GetLocal().pos then
-      TelX = GetLocal().pos.x // 32
-      TelY = GetLocal().pos.y // 32
+      TelX = math.floor(GetLocal().pos.x / 32)
+      TelY = math.floor(GetLocal().pos.y / 32)
       TextOverlay("`2TEL Pos saved: X=" .. tostring(TelX) .. " Y=" .. tostring(TelY))
     else
       TextOverlay("`4Can't access local pos")
