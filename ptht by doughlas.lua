@@ -105,8 +105,8 @@ function DoConsume()
     if not InWorld() then return end
     local pl = GetLocal()
     if not pl or not pl.pos then return end
-    local cx = pl.pos.x // 32
-    local cy = pl.pos.y // 32
+    local cx = math.floor(pl.pos.x / 32)
+    local cy = math.floor(pl.pos.y / 32)
 
     local Lucky = {528, 1056}
     if type(Lucky) ~= "table" then
@@ -131,8 +131,8 @@ function CheckConsume()
     if not os then return end
     local now = os.time()
     if now - (LastConsume or 0) >= 1800 then
-        local cx = GetLocal().pos.x // 32
-        local cy = GetLocal().pos.y // 32
+        local cx = math.floor(GetLocal().pos.x / 32)
+        local cy = math.floor(GetLocal().pos.y / 32)
         FindPath(cx, cy, 520)
         Sleep(500)
         DoConsume()
@@ -514,7 +514,7 @@ function TelePath(tx, ty, rangeTrigger)
         while try < TELEPATH_TRY_PER_STEP and InWorld() do
             Sleep(TELEPATH_STEP_SLEEP)
             local pl2 = GetLocal()
-            if pl2 and pl2.pos and pl2.pos.x // 32 == nx and pl2.pos.y // 32 == ny then
+            if pl2 and pl2.pos and math.floor(pl2.pos.x / 32) == nx and math.floor(pl2.pos.y / 32) == ny
                 reached = true
                 break
             end
@@ -1398,7 +1398,7 @@ function PTHT_GUI()
     if ch_tot then PlantY = math.max(0, new_tot) end
     if ImGui.Button("Save PlantY from Current") then
         if GetLocal and GetLocal().pos then
-            PlantY = GetLocal().pos.y // 32
+            PlantY = math.floor(GetLocal().pos.y / 32)
             TextOverlay("`2PlantY saved: " .. tostring(PlantY))
         else
             TextOverlay("`4Can't access local pos")
@@ -1450,8 +1450,8 @@ function PTHT_GUI()
     if ch_vey then VendingY = math.max(0, new_vey) end
     if ImGui.Button("Save Vending Position from Current") then
         if GetLocal and GetLocal().pos then
-            VendingX = GetLocal().pos.x // 32
-            VendingY = GetLocal().pos.y // 32
+            VendingX = math.floor(GetLocal().pos.x / 32)
+            VendingY = math.floor(GetLocal().pos.y / 32)
             TextOverlay("`1Succes saved position")
         else
             TextOverlay("`4Can't access pos")
@@ -1469,8 +1469,8 @@ function PTHT_GUI()
     if ch_poy then PointY = math.max(0, new_poy) end
     if ImGui.Button("Save CheckPoint Position from Current") then
         if GetLocal and GetLocal().pos then
-            PointX = GetLocal().pos.x // 32
-            PointY = GetLocal().pos.y // 32
+            PointX = math.floor(GetLocal().pos.x / 32)
+            PointY = math.floor(GetLocal().pos.y / 32)
             TextOverlay("`1Successfully saved position")
         else
             TextOverlay("`4Can't access pos")
