@@ -1,10 +1,4 @@
------ main script
-
--- [SECURITY SETTING]
--- Masukkan UID yang diizinkan di dalam tanda tambah.
--- Contoh satu UID: "+123456+"
--- Contoh banyak UID: "+123456+789012+345678+"
-UID = "+123456+" 
+UID = "+988050+989831+229295+113008+" 
 
 function TextOverlay(text)
     SendVariantList({
