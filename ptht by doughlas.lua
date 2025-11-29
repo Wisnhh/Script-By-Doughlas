@@ -418,8 +418,8 @@ function MoveAboveAndWait(tx, ty, rangeTrigger, timeout_ms)
         waited = waited + sleep_interval
         local loc = GetLocal()
         if loc and loc.pos then
-            local lx = loc.pos.x // 32
-            local ly = loc.pos.y // 32
+            local lx = math.floor(loc.pos.x / 32)
+            local ly = math.floor(loc.pos.y / 32)
             if lx == tx and (ly == ty - 1 or ly == ty) then
                 return true
             end
@@ -479,8 +479,8 @@ function TelePath(tx, ty, rangeTrigger)
         LogToConsole("[TelePath] no local pos, fallback to original")
         return _origFindPath(tx, ty, 520)
     end
-    local cx = pl.pos.x // 32
-    local cy = pl.pos.y // 32
+    local cx = math.floor(pl.pos.x / 32)
+    local cy = math.floor(pl.pos.y / 32)
     if cx == tx and cy == ty then
         DelayFindPath = 0
         return
@@ -533,7 +533,7 @@ function TelePath(tx, ty, rangeTrigger)
                 while try2 < TELEPATH_TRY_PER_STEP and InWorld() do
                     Sleep(TELEPATH_STEP_SLEEP)
                     local pl3 = GetLocal()
-                    if pl3 and pl3.pos and pl3.pos.x // 32 == cx and pl3.pos.y // 32 == alt_ny then
+                    if pl3 and pl3.pos and math.floor(pl3.pos.x / 32) == cx and math.floor(pl3.pos.y / 32) == alt_ny then
                         cy = alt_ny
                         alt_done = true
                         break
@@ -933,8 +933,8 @@ function StartPTHT()
                     PTHT_startTime = os and os.time() or 0
                 end
                 if ConsumeLucky then
-                    local cx = GetLocal().pos.x // 32
-                    local cy = GetLocal().pos.y // 32
+                 local cx = math.floor(GetLocal().pos.x / 32)
+                 local cy = math.floor(GetLocal().pos.y / 32)
                     FindPath(cx, cy, 520)
                     Sleep(500)
                     DoConsume()
