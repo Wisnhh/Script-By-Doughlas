@@ -737,47 +737,47 @@ SendWebhook(WebhookUrl, [=[
       "fields": [
         {
           "name": "『<:globe:1443460850248716308>』 **Name World**",
-          "value": "]] .. WorldName .. [[",
+          "value": "]=] .. WorldName .. [=[",
           "inline": false
         },
         {
           "name": "『<:ava:1443432607726571660>』 **Account**",
-          "value": "]] .. Nick .. [[",
+          "value": "]=] .. Nick .. [=[",
           "inline": false
         },
         {
           "name": "『<:magplant:1443461129258008730>』 **Magplant**",
-          "value": "]] .. Now .. [[ / ]] .. #Mag .. [[",
+          "value": "]=] .. Now .. [=[ / ]=] .. #Mag .. [=[",
           "inline": false
         },
         {
           "name": "『<:uws:1444128570975715370>』 **UWS**",
-          "value": "]] .. UWS .. [[ !",
+          "value": "]=] .. UWS .. [=[ !",
           "inline": false
         },
         {
           "name": "『<:gems:1443458682896777286>』 **Gems**",
-          "value": "]] .. FNum(Gems) .. [[",
+          "value": "]=] .. FNum(Gems) .. [=[",
           "inline": false
         },
         {
           "name": "『:evergreen_tree:』 **Total Ptht**",
-          "value": "]] .. SprayUWS .. [[ / ]] .. TotalPTHT .. [[",
+          "value": "]=] .. SprayUWS .. [=[ / ]=] .. TotalPTHT .. [=[",
           "inline": false
         },
         {
           "name": "『<:globe:1419659253270052936>』 **Time**",
-          "value": "]] .. FTime(duration) .. [[",
+          "value": "]=] .. FTime(duration) .. [=[",
           "inline": false
         },
         {
           "name": "『<:time:1444131195964362843>』 **Total Time**",
-          "value": "]] .. FTime(os.time() - StartTime) .. [[",
+          "value": "]=] .. FTime(os.time() - StartTime) .. [=[",
           "inline": false
         }
       ],
       "footer": {
-        "text": "PTHT DOUGHLAS LOGS • Today At ]] .. os.date("%H:%M") .. [["
+        "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
       },
       "thumbnail": {
         "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
@@ -815,17 +815,17 @@ function Entering()
               "fields": [
                 {
                   "name": "『<:ava:1443432607726571660>』 **Account**",
-                  "value": "<@]] .. DiscordID .. [[> • ]] .. Nick .. [[",
+                  "value": "<@]=] .. DiscordID .. [=[> • ]=] .. Nick .. [=[",
                   "inline": false
                 },
                 {
                   "name": "『<:globe:1443460850248716308>』 **Name World**",
-                  "value": "]] .. WorldName .. [[",
+                  "value": "]=] .. WorldName .. [=[",
                   "inline": false
                 }
               ],
               "footer": {
-                "text": "PTHT DOUGHLAS LOGS • Today At ]] .. os.date("%H:%M") .. [["
+                "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
               },
               "thumbnail": {
                 "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
