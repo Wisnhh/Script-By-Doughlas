@@ -77,19 +77,19 @@ end
 
 function onvariant(var)
     if "OnConsoleMessage" == var[0] and var[1]:find("boringness.") then
-        SendPacket(2, [[
+        SendPacket(2, [=[
 action|dialog_return
 dialog_name|buycheat
 dialog_name|cheats
 buttonClicked|1
-]])
+]=])
     elseif "OnConsoleMessage" == var[0] and var[1]:find("Cheater") then
-        SendPacket(2, [[
+        SendPacket(2, [=[
 action|dialog_return
 dialog_name|cheats
 check_gems|1
-check_lonely|]] .. CheckLonely .. [[
-]])
+check_lonely|]=] .. CheckLonely .. [=[
+]=])
     elseif "OnTalkBubble" == var[0] and var[2]:find("The MAGPLANT 5000 is empty") then
         Missed = Missed + 6
     elseif "OnConsoleMessage" == var[0] and var[1]:find("for cheating of type:") then
@@ -166,9 +166,9 @@ function AutoTakeConsumables()
                     for _, obj in pairs(GetObjectList()) do
                         if obj.id == cid then
                             Sleep(1000)
-                            SendPacket(2, [[
+                            SendPacket(2, [=[
 action|respawn
-]])
+]=])
                             Sleep(DelayEntering)
                             TelePath(math.floor(obj.pos.x/32), math.floor(obj.pos.y/32), 300)
                             Sleep(DelayTake)
@@ -337,21 +337,21 @@ function Scanning()
             SprayUWS = SprayUWS + 1
             Missed = 0
             if UseUWS then
-                SendPacket(2, [[
+                SendPacket(2, [=[
 action|dialog_return
-dialog_name|ultraworldspray]])
+dialog_name|ultraworldspray]=])
                 if AutoRespawn then
-                    SendPacket(2, [[
+                    SendPacket(2, [=[
 action|respawn
-]])
+]=])
                 end
                 Sleep(DelayUWS)
                 Harvest = true
             else
                 if AutoRespawn then
-                    SendPacket(2, [[
+                    SendPacket(2, [=[
 action|respawn
-]])
+]=])
                     Sleep(3000)
                 else
                     TelePath(199, PlantY, 500)
@@ -395,12 +395,12 @@ function GetRemote()
         y = m.y * 32
     })
     Sleep(300)
-    SendPacket(2, [[
+    SendPacket(2, [=[
 action|dialog_return
 dialog_name|magplant_edit
-x|]] .. m.x .. [[|
-y|]] .. m.y .. [[|
-buttonClicked|getRemote]])
+x|]=] .. m.x .. [=[|
+y|]=] .. m.y .. [=[|
+buttonClicked|getRemote]=])
     Sleep(1000)
 end
 
@@ -572,9 +572,9 @@ end
 
 function Loop()
     if AutoRespawn and not Harvest then
-        SendPacket(2, [[
+        SendPacket(2, [=[
 action|respawn
-]])
+]=])
         Sleep(3000)
     end
     if TakeUWS then
@@ -706,9 +706,9 @@ action|respawn
         if Plant and PTHT ~= SprayUWS then
             if UseUWS then
                 PTHT = PTHT + 1
-                SendPacket(2, [[
+                SendPacket(2, [=[
 action|input
-text|`b[DOUGHLAS] `1]] .. PTHT .. [[ `0PTHT])
+text|`b[DOUGHLAS] `1]=] .. PTHT .. [=[ `0PTHT])
             end
         end
     end
@@ -839,17 +839,17 @@ function Entering()
     if not InWorld() then
         Sukses = false
         Sleep(2000)
-        SendPacket(3, [[
+        SendPacket(3, [=[
 action|join_request
-name|]] .. WorldName .. [[|
-invitedWorld|0]])
+name|]=] .. WorldName .. [=[|
+invitedWorld|0]=])
         Sleep(DelayEntering)
         if InWorld() then
             Sleep(1000)
             if Radio then
-                SendPacket(2, [[
+                SendPacket(2, [=[
 action|input
-|text|/radio]])
+|text|/radio]=])
                 Sleep(DelayEntering)
             end
             RemoteEmpty = true
@@ -884,17 +884,17 @@ end
 
 function dialog(teks)
     Var0 = "OnDialogRequest"
-    Var1 = [[
+    Var1 = [=[
 add_label_with_icon|big|`bPTHT DOUGHLAS||16224|
 add_spacer|small|
-add_textbox|GrowID : ]] .. GetLocal().name:match("%S+") .. [[|
-add_textbox|World : `2]] .. WorldName .. [[|
-add_textbox|Position PTHT : `60 `0, `6]] .. PlantY .. [[|
-add_textbox|`8]] .. teks .. [[|
+add_textbox|GrowID : ]=] .. GetLocal().name:match("%S+") .. [=[|
+add_textbox|World : `2]=] .. WorldName .. [=[|
+add_textbox|Position PTHT : `60 `0, `6]=] .. PlantY .. [=[|
+add_textbox|`8]=] .. teks .. [=[|
 add_spacer|small|
 add_smalltext|DOUGHLAS JASA!|
 add_url_button||Discord|NOFLAGS|https://discord.gg/AF3REYDqps|`9DOUGHLAS JASA|0|0|
-add_quick_exit|]]
+add_quick_exit|]=]
     SendVariantList({
         [0] = Var0,
         [1] = Var1
@@ -940,29 +940,29 @@ function StartPTHT()
                     DoConsume()
                 end
                 if AutoBuyCheats then
-                    SendPacket(2, [[
+                    SendPacket(2, [=[
 action|dialog_return
 dialog_name|buycheat
 dialog_name|cheats
 buttonClicked|1
-]])
+]=])
                     Sleep(2000)
                 end
                 if AutoBuyCheats then
                     AddHook("onvariant", "onvariant", onvariant)
                     Sleep(2000)
                 end
-                SendPacket(2, [[
+                SendPacket(2, [=[
 action|dialog_return
 dialog_name|cheats
 check_gems|1
-check_lonely|]] .. CheckLonely .. [[
-]])
+check_lonely|]=] .. CheckLonely .. [=[
+]=])
                 Sleep(2000)
                 if Radio then
-                    SendPacket(2, [[
+                    SendPacket(2, [=[
 action|input
-|text|/radio]])
+|text|/radio]=])
                 end
                 Sleep(DelayEntering)
                 Scanning()
@@ -974,14 +974,14 @@ action|input
                             LogToConsole("`b[DOUGHLAS] `1 TOTAL PTHT " .. PTHT .. "X IS DONE!")
                             Sleep(820)
                             if WebhookPTHT then
-                                SendWebhook(WebhookUrl, [[
+                                SendWebhook(WebhookUrl, [=[
                                 {
                                   "embeds": [
                                     {
                                       "title": "PTHT Update",
-                                      "description": "<@]] .. DiscordID .. [[> ALL PTHT TOTAL ]] .. PTHT .. [[X Is DONE!",
+                                      "description": "<@]=] .. DiscordID .. [=[> ALL PTHT TOTAL ]=] .. PTHT .. [=[X Is DONE!",
                                       "footer": {
-                                        "text": "PTHT DOUGHLAS LOGS • Today At ]] .. os.date("%H:%M") .. [["
+                                        "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
                                       },
                                       "thumbnail": {
                                         "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
@@ -989,7 +989,7 @@ action|input
                                     }
                                   ]
                                 }
-                                ]])
+                                ]=])
                             end
                         end
                     until PTHT == TotalPTHT
@@ -1542,10 +1542,10 @@ function PTHT_GUI()
             StopRequested = true
             PTHT = 0
             TotalPTHT = 0
-            SendPacket(3, [[
+            SendPacket(3, [=[
 action|join_request
 name|EXIT|
-invitedWorld|0]])
+invitedWorld|0]=])
             RemoveHooks()
             AddHook("OnDraw", "PTHT_GUI", PTHT_GUI)
             LogToConsole("`b[DOUGHLAS] `4Stopped")
