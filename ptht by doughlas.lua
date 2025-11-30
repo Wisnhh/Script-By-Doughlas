@@ -806,36 +806,36 @@ function InWorld()
 end
 
 function Entering()
-    if not InWorld() and WebhookPTHT and ReconnectWebhook then
-        SendWebhook(WebhookUrl, [=[
-        {
-          "embeds": [
-            {
-              "title": "『<:eaa:1440243162080612374> 』 **Reconect**",
-              "fields": [
-                {
-                  "name": "『<:ava:1443432607726571660>』 **Account**",
-                  "value": "<@]=] .. DiscordID .. [=[> • ]=] .. Nick .. [=[",
-                  "inline": false
-                },
-                {
-                  "name": "『<:globe:1443460850248716308>』 **Name World**",
-                  "value": "]=] .. WorldName .. [=[",
-                  "inline": false
-                }
-              ],
-              "footer": {
-                "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
-              },
-              "thumbnail": {
-                "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
-              }
-            }
-          ]
-        }
-        ]=])
-        ReconnectWebhook = false
-    end
+    if not InWorld() and WebhookPTHT and ReconnectWebhook then
+        SendWebhook(WebhookUrl, [=[
+{
+  "embeds": [
+    {
+      "title": "『<:eaa:1440243162080612374> 』 **Reconect**",
+      "fields": [
+        {
+          "name": "『<:ava:1443432607726571660>』 **Account**",
+          "value": "<@]=] .. DiscordID .. [=[> • ]=] .. Nick .. [=[",
+          "inline": false
+        },
+        {
+          "name": "『<:globe:1443460850248716308>』 **Name World**",
+          "value": "]=] .. WorldName .. [=[",
+          "inline": false
+        }
+      ],
+      "footer": {
+        "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
+      }
+    }
+  ]
+}
+]=])
+        ReconnectWebhook = false
+    end
     if not InWorld() then
         Sukses = false
         Sleep(2000)
@@ -975,21 +975,21 @@ action|input
                             Sleep(820)
                             if WebhookPTHT then
                                 SendWebhook(WebhookUrl, [=[
-                                {
-                                  "embeds": [
-                                    {
-                                      "title": "PTHT Update",
-                                      "description": "<@]=] .. DiscordID .. [=[> ALL PTHT TOTAL ]=] .. PTHT .. [=[X Is DONE!",
-                                      "footer": {
-                                        "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
-                                      },
-                                      "thumbnail": {
-                                        "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
-                                      }
-                                    }
-                                  ]
-                                }
-                                ]=])
+{
+  "embeds": [
+    {
+      "title": "PTHT Update",
+      "description": "<@]=] .. DiscordID .. [=[> ALL PTHT TOTAL ]=] .. PTHT .. [=[X Is DONE!",
+      "footer": {
+        "text": "PTHT DOUGHLAS LOGS • Today At ]=] .. os.date("%H:%M") .. [=["
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/961043626782228500/1443455382071804035/Doughlas_Jasa.jpg"
+      }
+    }
+  ]
+}
+]=])
                             end
                         end
                     until PTHT == TotalPTHT
